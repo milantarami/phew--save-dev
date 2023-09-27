@@ -1,10 +1,12 @@
 # Web Architecture
 
+## WebDB
+
 ## Bookmarks **_( bookmarks )_**
 
 ```
 - id                    - uuid
-- parent_id             - uuid
+- parent_id             - uuid    - nullable
 - type                  - string  - folder | url
 - info                  - json    - folder => {name}
                                   - url => {title, favicon, url}
@@ -15,10 +17,19 @@
 - synced_at             - timestamp
 ```
 
-## UnSynced Bookmarks
+## UnSynced Data
 
 ```
-- id                    - uuid
+- related_to                    - string
+- related_id                    - uuid
+- mutation                      - c | u | d
+
+-> create
+
+-> update
+
+-> delete
+
 ```
 
 ## Server Sync DB Batches
