@@ -1,5 +1,10 @@
 import React from "react";
+import { Metadata } from "next";
 
-export default function Bookmarks() {
-  return <div>Bookmarks</div>;
+export const metadata: Metadata = {
+  title: "Phew Save Dev | Bookmarks",
+};
+
+export default function Page() {
+  return <>bookmarks</>;
 }
