@@ -1,7 +1,26 @@
-import { Appwrite } from "@/types/appwrite";
+import AppConfig from "./app.config";
 
-const AppwriteConfig: Appwrite.Config = {
-  projectId: "6501d8c1325a7e9f892d",
+const AppwriteConfig = {
+  /**
+   * Appwrite Project ID
+   *
+   */
+  projectId: process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID,
+
+  /**
+   * Appwrite base url
+   *
+   */
+  baseUrl: process.env.NEXT_PUBLIC_APPWRITE_URL,
+
+  /**
+   * Oauth2
+   *
+   */
+  oauth2: {
+    successCallback: `${AppConfig.baseUrl}`,
+    failureCallback: `${AppConfig.baseUrl}/failure`,
+  },
 };
 
 export default AppwriteConfig;
