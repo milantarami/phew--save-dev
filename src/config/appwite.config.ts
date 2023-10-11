@@ -5,20 +5,20 @@ const AppwriteConfig = {
    * Appwrite Project ID
    *
    */
-  projectId: process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID,
+  projectId: String(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID),
 
   /**
    * Appwrite base url
    *
    */
-  baseUrl: process.env.NEXT_PUBLIC_APPWRITE_URL,
+  baseUrl: String(process.env.NEXT_PUBLIC_APPWRITE_URL),
 
   /**
    * Oauth2
    *
    */
   oauth2: {
-    successCallback: `${AppConfig.baseUrl}`,
+    successCallback: `${AppConfig.baseUrl}/dashboard`,
     failureCallback: `${AppConfig.baseUrl}/failure`,
   },
 };

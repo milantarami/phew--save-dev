@@ -14,3 +14,5 @@ https://chat.openai.com/share/8e5e2009-a10a-429b-bed6-0474216d7be2
 ## allow offline
 
     - auto sync if online
+
+- with music

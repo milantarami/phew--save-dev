@@ -1,9 +1,13 @@
 "use client";
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
 
 import appwriteAuthService from "@/services/AppwriteAuthService";
 
 export default function LoginPage() {
-  const handleLogin = () => appwriteAuthService.loginWithGithub();
+  const handleLogin = () => {
+    appwriteAuthService.loginWithGithub();
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

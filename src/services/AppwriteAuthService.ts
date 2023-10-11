@@ -2,11 +2,13 @@ import { Client, Account } from "appwrite";
 import AppwriteConfig from "@/config/appwite.config";
 import { Appwrite } from "@/types/appwrite";
 
-const client = new Client()
+const appwriteClient = new Client();
+
+appwriteClient
   .setEndpoint(AppwriteConfig.baseUrl)
   .setProject(AppwriteConfig.projectId);
 
-const account = new Account(client);
+export const account = new Account(appwriteClient);
 
 export class AppwriteAuthService {
   /**
@@ -29,9 +31,9 @@ export class AppwriteAuthService {
     }
   }
 
-  async getSession() {
+  async getSession(req: any) {
     try {
-      const session = await account.getSession("current");
+      const session = await account.getSession(req);
       return session as Appwrite.Session;
     } catch (error) {
       throw error;
