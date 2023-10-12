@@ -1,11 +1,9 @@
-import appwriteAuthService from "@/services/AppwriteAuthService";
+import AppConfig from "@/config/app.config";
+import NextAuthConfig from "@/config/next-auth.config";
 import { NextRequest, NextResponse } from "next/server";
-import React, { useEffect } from "react";
 
 async function DashboardPage(req: NextRequest, res: NextResponse) {
-  const data = await appwriteAuthService.getSession({ req });
-
-  return <div>{JSON.stringify(data)}</div>;
+  return <>facebook</>;
 }
 
 export default DashboardPage;
