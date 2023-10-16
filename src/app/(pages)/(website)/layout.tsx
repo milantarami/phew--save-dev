@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import IndexedDbSupport from "@/components/indexed-db/IndexedDbSupport";
+import IndexedDbSupport from "@/components/atoms/indexed-db/IndexedDbSupport";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import IndexedDbSupport from "@/components/indexed-db/IndexedDbSupport";
+import ThemeRegistry from "@/components/theme-registry/ThemeRegistry";
+import IndexedDbSupport from "@/components/atoms/indexed-db/IndexedDbSupport";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
-        <IndexedDbSupport />
+        <ThemeRegistry>
+          {children}
+          <IndexedDbSupport />
+        </ThemeRegistry>
       </body>
     </html>
   );

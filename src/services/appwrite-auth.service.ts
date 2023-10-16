@@ -1,6 +1,6 @@
 import { Client, Account } from "appwrite";
-import AppwriteConfig from "@/config/appwite.config";
 import { Appwrite } from "@/types/appwrite";
+import AppwriteConfig from "@/config/appwite.config";
 
 const appwriteClient = new Client();
 
