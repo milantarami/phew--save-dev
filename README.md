@@ -16,6 +16,8 @@ bun dev
 
 - [Standardize Your Next.js Project with ESLint and Husky](https://yehezgun.com/articles/standardize-your-nextjs-project)
 - [Conventional Commit](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
+- [Start a clean Next.js project with TypeScript, ESLint and Prettier](https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js)
+- [Setup Next.js 13 project with Eslint + Prettier](https://gist.github.com/Nivethan-Ar/2375bf451d4c30148916b59c7e0c51c0)
 
 # React Atomic Design
 

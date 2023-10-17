@@ -21,3 +21,4 @@ https://chat.openai.com/share/8e5e2009-a10a-429b-bed6-0474216d7be2
 - screen saver
 - lock screen
 - unlock with password
+- customized overlay
