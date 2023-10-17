@@ -1,8 +1,7 @@
 "use client";
 import NextAuth from "next-auth";
 
-
-import appwriteAuthService from "@/services/AppwriteAuthService";
+import appwriteAuthService from "@/services/appwrite-auth.service";
 
 export default function LoginPage() {
   const handleLogin = () => {

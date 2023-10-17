@@ -1,4 +1,5 @@
 import { Client, Account } from "appwrite";
+
 import { Appwrite } from "@/types/appwrite";
 import AppwriteConfig from "@/config/appwite.config";
 
@@ -18,7 +19,7 @@ export class AppwriteAuthService {
     account.createOAuth2Session(
       "github",
       AppwriteConfig.oauth2.successCallback,
-      AppwriteConfig.oauth2.failureCallback
+      AppwriteConfig.oauth2.failureCallback,
     );
   }
 

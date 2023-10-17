@@ -1,5 +1,6 @@
 const UiConfig = {
-  drawerWidth: 240,
+  desktopDrawerWidth: 240,
+  tabletDrawerWidth: 60,
 };
 
 export default UiConfig;

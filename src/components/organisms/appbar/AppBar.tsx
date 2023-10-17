@@ -18,8 +18,8 @@ export default function AppBar(props: AppBarProps) {
     <MuiAppBar
       position="fixed"
       sx={{
-        width: { sm: `calc(100% - ${UiConfig.drawerWidth}px)` },
-        ml: { sm: `${UiConfig.drawerWidth}px` },
+        width: { md: `calc(100% - ${UiConfig.desktopDrawerWidth}px)` },
+        ml: { md: `${UiConfig.desktopDrawerWidth}px` },
       }}
     >
       <Toolbar>
@@ -28,7 +28,7 @@ export default function AppBar(props: AppBarProps) {
           aria-label="open drawer"
           edge="start"
           onClick={onDrawerToggle}
-          sx={{ mr: 2, display: { sm: "none" } }}
+          sx={{ mr: 2, display: { md: "none" } }}
         >
           <MenuIcon />
         </IconButton>
