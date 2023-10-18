@@ -11,6 +11,7 @@ import IndexedDbSupport from "@/components/atoms/indexed-db/IndexedDbSupport";
 import UiConfig from "@/config/ui.config";
 import useLayoutStore from "@/stores/useLayoutStore";
 import useDetectScreen from "@/hooks/useDetectScreen";
+import { useEffect } from "react";
 
 export default function RootLayout({
   children,
@@ -23,6 +24,10 @@ export default function RootLayout({
   } = useLayoutStore();
 
   const { isTablet } = useDetectScreen();
+
+  useEffect(() => {
+    localStorage.setItem("test", "value");
+  }, []);
 
   return (
     <html lang="en">
