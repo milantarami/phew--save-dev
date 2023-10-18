@@ -2,10 +2,12 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 import AppConfig from "@/config/app.config";
+import { UI } from "@/types/ui";
 
 interface LayoutState {
   isMobileDrawerOpen: boolean;
   isDesktopDrawerCollapsed: boolean;
+  drawerItems: UI.DrawerItem[];
 }
 
 interface LayoutStoreState {
@@ -19,6 +21,7 @@ interface LayoutStoreState {
 const initialState: LayoutState = {
   isMobileDrawerOpen: false,
   isDesktopDrawerCollapsed: false,
+  drawerItems: [],
 };
 
 const useLayoutStore = create<LayoutStoreState>()(

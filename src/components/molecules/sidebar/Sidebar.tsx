@@ -15,6 +15,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ListItemButton from "@mui/material/ListItemButton";
 
 import UiConfig from "@/config/ui.config";
+import { UI } from "@/types/ui";
 
 interface SidebarProps {
   /**
@@ -24,18 +25,12 @@ interface SidebarProps {
   window?: () => Window;
   isMobileDrawerOpen: boolean;
   onMobileDrawerClose: () => void;
+  drawerItems: UI.DrawerItem[];
 }
 
 export default function Sidebar(props: SidebarProps) {
-  const { window, isMobileDrawerOpen, onMobileDrawerClose } = props;
-
-  const drawerItems = [
-    {
-      icon: <></>,
-      label: "",
-      onClick: () => void
-    },
-  ];
+  const { window, isMobileDrawerOpen, onMobileDrawerClose, drawerItems } =
+    props;
 
   const drawer = (
     <div>

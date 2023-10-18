@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
@@ -47,6 +46,7 @@ export default function RootLayout({
               onMobileDrawerClose={() =>
                 setLayoutState("isMobileDrawerOpen", !isMobileDrawerOpen)
               }
+              drawerItems={[]}
             />
             <Box
               component="main"
