@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const {
-    layoutState: { isMobileDrawerOpen, isDesktopDrawerCollapsed },
+    layoutState: { isMobileDrawerOpen, isDesktopDrawerCollapsed, drawerItems },
     setLayoutState,
   } = useLayoutStore();
 
@@ -46,7 +46,7 @@ export default function RootLayout({
               onMobileDrawerClose={() =>
                 setLayoutState("isMobileDrawerOpen", !isMobileDrawerOpen)
               }
-              drawerItems={[]}
+              drawerItems={drawerItems}
             />
             <Box
               component="main"

@@ -4,6 +4,7 @@ import List from "@mui/material/List";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
+import { useRouter } from "next/navigation";
 import ListItem from "@mui/material/ListItem";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -14,8 +15,10 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ListItemButton from "@mui/material/ListItemButton";
 
-import UiConfig from "@/config/ui.config";
+import BookmarksIcon from "@mui/icons-material/Bookmarks";
+
 import { UI } from "@/types/ui";
+import UiConfig from "@/config/ui.config";
 
 interface SidebarProps {
   /**
@@ -29,37 +32,44 @@ interface SidebarProps {
 }
 
 export default function Sidebar(props: SidebarProps) {
-  const { window, isMobileDrawerOpen, onMobileDrawerClose, drawerItems } =
-    props;
+  const router = useRouter();
+
+  const { window, isMobileDrawerOpen, onMobileDrawerClose } = props;
+
+  const drawerItems: UI.DrawerItem[] = [
+    {
+      type: "link",
+      key: "bookmarks",
+      icon: <BookmarksIcon />,
+      label: "Bookmarks",
+      path: "/bookmarks",
+    },
+  ];
 
   const drawer = (
     <div>
       <Toolbar>logo here</Toolbar>
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+        {drawerItems.map((item) => {
+          if (item.type === "link") {
+            return (
+              <ListItem key={item.key} disablePadding>
+                <ListItemButton onClick={() => router.push(item.path)}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.label} />
+                </ListItemButton>
+              </ListItem>
+            );
+          }
+
+          <ListItem key={item.key} disablePadding>
+            <ListItemButton onClick={item.onClick}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.label} />
             </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+          </ListItem>;
+        })}
       </List>
     </div>
   );

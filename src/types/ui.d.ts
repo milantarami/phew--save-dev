@@ -6,14 +6,14 @@ export declare namespace UI {
         type: "link";
         key: string;
         icon: React.ReactNode;
-        label: React.ReactNode;
+        label: string;
         path: string;
       }
     | {
         type: "button";
         key: string;
         icon: React.ReactNode;
-        label: React.ReactNode;
+        label: string;
         onClick: () => void;
       };
 }
