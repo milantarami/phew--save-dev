@@ -24,3 +24,5 @@ https://chat.openai.com/share/8e5e2009-a10a-429b-bed6-0474216d7be2
 - customized overlay
 
 - onboarding features too
+
+- useful links programming wise, Framework wise, playgrounds

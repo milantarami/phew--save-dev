@@ -6,13 +6,8 @@ import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import { useRouter } from "next/navigation";
 import ListItem from "@mui/material/ListItem";
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
-import IconButton from "@mui/material/IconButton";
-import CssBaseline from "@mui/material/CssBaseline";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ListItemButton from "@mui/material/ListItemButton";
 
 import BookmarksIcon from "@mui/icons-material/Bookmarks";

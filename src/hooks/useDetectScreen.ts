@@ -1,7 +1,5 @@
-"use client";
-
+import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import { useEffect, useState } from "react";
 
 type DetectScreenState = {
   isMobile: boolean;
@@ -9,14 +7,18 @@ type DetectScreenState = {
   isDesktop: boolean;
 };
 
-export default function useDetectScreen() {
+export default function useDetectScreen(): DetectScreenState {
   const theme = useTheme();
 
   const MOBILE_SCREEN_MAX_SIZE = theme.breakpoints.values.sm;
 
   const TABLET_SCREEN_MAX_SIZE = theme.breakpoints.values.md;
 
-  const getChangedScreenState = (width: number): DetectScreenState => {
+  const [width, setWidth] = useState(
+    typeof window === "undefined" ? 0 : window.innerWidth,
+  );
+
+  const screenState = useMemo(() => {
     if (width <= MOBILE_SCREEN_MAX_SIZE) {
       return {
         isMobile: true,
@@ -39,24 +41,11 @@ export default function useDetectScreen() {
         isDesktop: true,
       };
     }
-  };
-
-  const [screenState, setScreenState] = useState<DetectScreenState>(
-    getChangedScreenState(window.innerWidth),
-  );
-
-  const [width, setWidth] = useState(window.innerWidth);
+  }, [width]);
 
   const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth);
+    setWidth(window !== undefined ? window.innerWidth : 0);
   };
-
-  useEffect(() => {
-    const changedScreenState = getChangedScreenState(width);
-    if (JSON.stringify(screenState) !== JSON.stringify(changedScreenState)) {
-      setScreenState(changedScreenState);
-    }
-  }, [width]);
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
