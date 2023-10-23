@@ -39,6 +39,13 @@ export default function Sidebar(props: SidebarProps) {
       label: "Bookmarks",
       path: "/bookmarks",
     },
+    {
+      type: "link",
+      key: "bookmarks",
+      icon: <BookmarksIcon />,
+      label: "Bookmarks",
+      path: "/bookmarks",
+    },
   ];
 
   const drawer = (

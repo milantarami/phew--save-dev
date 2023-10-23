@@ -1,5 +1,8 @@
 "use client";
 
+import "./globals.css";
+
+import { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
@@ -11,7 +14,6 @@ import IndexedDbSupport from "@/components/atoms/indexed-db/IndexedDbSupport";
 import UiConfig from "@/config/ui.config";
 import useLayoutStore from "@/stores/useLayoutStore";
 import useDetectScreen from "@/hooks/useDetectScreen";
-import { useEffect } from "react";
 
 export default function RootLayout({
   children,

@@ -1,6 +1,11 @@
 import { TypographyOptions } from "@mui/material/styles/createTypography";
 
+import { Inter, Poppins } from "./fonts";
+
 export const Typography: TypographyOptions = {
   fontSize: 14,
-  fontFamily: "'Poppins', sans-serif",
+  fontFamily: Poppins,
+  button: {
+    textTransform: "none",
+  },
 };

@@ -17,6 +17,12 @@ const theme = createTheme({
     MuiAppBar: MuiAppBar,
     MuiTableBody: MuiTableBody,
   },
+  density: "default",
+  fontFamily: {
+    heading: "",
+    subheading: "",
+    body: "",
+  },
 });
 
 export default theme;

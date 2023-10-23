@@ -1,5 +1,4 @@
-/* eslint-disable filenames-simple/typescript-module-declaration */
-/* eslint-disable no-restricted-imports */
+import * as createTheme from "@mui/material/styles/createTheme";
 import * as createPalette from "@mui/material/styles/createPalette";
 
 interface Shade {
@@ -14,6 +13,23 @@ interface Shade {
   800: string;
   900: string;
   950: string;
+}
+
+interface FontFamily {
+  heading: string;
+  subheading: string;
+  body: string;
+}
+
+declare module "@mui/material/styles/createTheme" {
+  export interface ThemeOptions {
+    density: "default" | "comfortable" | "compact";
+    fontFamily: FontFamily;
+  }
+
+  export interface Theme {
+    density: "default" | "comfortable" | "compact";
+  }
 }
 
 declare module "@mui/material/styles/createPalette" {
