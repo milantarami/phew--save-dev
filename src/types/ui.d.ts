@@ -16,4 +16,12 @@ export declare namespace UI {
         label: string;
         onClick: () => void;
       };
+
+  export type DrawerDropdownItem = {
+    type: "dropdown";
+    key: string;
+    icon: React.ReactNode;
+    label: string;
+    children: DrawerItem[];
+  };
 }

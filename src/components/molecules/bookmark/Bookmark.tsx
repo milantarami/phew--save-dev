@@ -11,12 +11,17 @@ import Wrapper from "@/components/atoms/wrapper/Wrapper";
 
 import theme from "@/themes/theme";
 
-const BookmarkWrapper = styled(Wrapper)(() => ({
+const BookmarkWrapper = styled(Wrapper)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  height: "40px",
-  borderBottom: "1px solid red",
+  // height: "40px",
   gap: theme.spacing(1),
+  padding: "4px 8px",
+  borderRadius: "10px",
+  "&:hover": {
+    background: theme.palette.grey[200],
+    cursor: "default",
+  },
 }));
 
 export default function Bookmark() {

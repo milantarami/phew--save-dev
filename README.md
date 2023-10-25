@@ -24,3 +24,7 @@ bun dev
 - [atomic-design-demo-github](https://github.com/fabiosjc/atomic-design-demo)
 - [atomic-design-demo](https://atomic-storybook.netlify.app/?path=/story/atoms-logo--default)
 - [react-atomic-structure](https://github.com/Rulox/react-atomic-structure)
+
+# Libraries
+
+- [Mousetrap](https://craig.is/killing/mice)

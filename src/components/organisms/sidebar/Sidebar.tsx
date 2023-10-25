@@ -10,10 +10,17 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
 
-import BookmarksIcon from "@mui/icons-material/Bookmarks";
+import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
+import EventNoteRoundedIcon from "@mui/icons-material/EventNoteRounded";
+import CorporateFareRoundedIcon from "@mui/icons-material/CorporateFareRounded";
+import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
+import TextSnippetRoundedIcon from "@mui/icons-material/TextSnippetRounded";
+import NotificationAddRoundedIcon from "@mui/icons-material/NotificationAddRounded";
+import PlaylistAddCheckRoundedIcon from "@mui/icons-material/PlaylistAddCheckRounded";
 
 import { UI } from "@/types/ui";
 import UiConfig from "@/config/ui.config";
+import DrawerItem from "@/components/molecules/drawer/DrawerItem";
 
 interface SidebarProps {
   /**
@@ -23,28 +30,62 @@ interface SidebarProps {
   window?: () => Window;
   isMobileDrawerOpen: boolean;
   onMobileDrawerClose: () => void;
+  isDesktopDrawerCollapsed: boolean;
   drawerItems: UI.DrawerItem[];
 }
 
 export default function Sidebar(props: SidebarProps) {
   const router = useRouter();
 
-  const { window, isMobileDrawerOpen, onMobileDrawerClose } = props;
+  const {
+    window,
+    isDesktopDrawerCollapsed,
+    isMobileDrawerOpen,
+    onMobileDrawerClose,
+  } = props;
 
-  const drawerItems: UI.DrawerItem[] = [
+  const drawerItems: (UI.DrawerItem | UI.DrawerDropdownItem)[] = [
     {
       type: "link",
       key: "bookmarks",
-      icon: <BookmarksIcon />,
+      icon: <BookmarkBorderRoundedIcon />,
       label: "Bookmarks",
       path: "/bookmarks",
     },
     {
       type: "link",
-      key: "bookmarks",
-      icon: <BookmarksIcon />,
-      label: "Bookmarks",
-      path: "/bookmarks",
+      key: "todos",
+      icon: <PlaylistAddCheckRoundedIcon />,
+      label: "Todos",
+      path: "/todos",
+    },
+    {
+      type: "link",
+      key: "reminders",
+      icon: <NotificationAddRoundedIcon />,
+      label: "Reminders",
+      path: "/reminders",
+    },
+    {
+      type: "link",
+      key: "notes",
+      icon: <TextSnippetRoundedIcon />,
+      label: "Notes",
+      path: "/notes",
+    },
+    {
+      type: "link",
+      key: "organizations",
+      icon: <CorporateFareRoundedIcon />,
+      label: "Organizations",
+      path: "/organizations",
+    },
+    {
+      type: "link",
+      key: "events",
+      icon: <EventNoteRoundedIcon />,
+      label: "Events",
+      path: "/events",
     },
   ];
 
@@ -54,23 +95,7 @@ export default function Sidebar(props: SidebarProps) {
       <Divider />
       <List>
         {drawerItems.map((item) => {
-          if (item.type === "link") {
-            return (
-              <ListItem key={item.key} disablePadding>
-                <ListItemButton onClick={() => router.push(item.path)}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </ListItem>
-            );
-          }
-
-          <ListItem key={item.key} disablePadding>
-            <ListItemButton onClick={item.onClick}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.label} />
-            </ListItemButton>
-          </ListItem>;
+          return <DrawerItem data={item} />;
         })}
       </List>
     </div>
@@ -115,7 +140,7 @@ export default function Sidebar(props: SidebarProps) {
         }}
         open
       >
-        {drawer} desktop
+        {drawer}
       </Drawer>
     </Box>
   );

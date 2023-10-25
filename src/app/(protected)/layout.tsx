@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
 import AppBar from "@/components/organisms/appbar/AppBar";
-import Sidebar from "@/components/molecules/sidebar/Sidebar";
+import Sidebar from "@/components/organisms/sidebar/Sidebar";
 import ThemeRegistry from "@/components/theme-registry/ThemeRegistry";
 import IndexedDbSupport from "@/components/atoms/indexed-db/IndexedDbSupport";
 
@@ -53,6 +53,7 @@ export default function RootLayout({
               onMobileDrawerClose={() =>
                 setLayoutState("isMobileDrawerOpen", !isMobileDrawerOpen)
               }
+              isDesktopDrawerCollapsed={isDesktopDrawerCollapsed}
               drawerItems={drawerItems}
             />
             <Box
