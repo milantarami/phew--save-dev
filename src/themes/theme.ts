@@ -1,16 +1,18 @@
 import { createTheme } from "@mui/material/styles";
-import { defaultPalette } from "./foundations/palette";
 
 import { MuiButton } from "./components/button";
 import { MuiAppBar } from "./components/appbar";
 import { MuiInputBase } from "./components/input";
 import { MuiTableBody } from "./components/table";
 
-import { Typography } from "./foundations/typography";
+import { mixins } from "./foundations/mixins";
+import { typography } from "./foundations/typography";
+import { defaultPalette } from "./foundations/palette";
 
 const theme = createTheme({
   palette: defaultPalette,
-  typography: Typography,
+  typography: typography,
+  mixins: mixins,
   components: {
     MuiButton: MuiButton,
     MuiInputBase: MuiInputBase,

@@ -10,10 +10,11 @@ import { UI } from "@/types/ui";
 
 interface DrawerItemProps {
   data: UI.DrawerItem | UI.DrawerDropdownItem;
+  isDesktopDrawerCollapsed: boolean;
 }
 
 const DrawerItem = React.forwardRef<any, DrawerItemProps>((props, ref) => {
-  const { data } = props;
+  const { data, isDesktopDrawerCollapsed } = props;
 
   const { icon, key, label, type } = data;
 
@@ -32,7 +33,7 @@ const DrawerItem = React.forwardRef<any, DrawerItemProps>((props, ref) => {
         }}
       >
         <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText primary={label} />
+        {!isDesktopDrawerCollapsed && <ListItemText primary={label} />}
       </ListItemButton>
     </ListItem>
   );

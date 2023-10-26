@@ -1,16 +1,9 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
-import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
-import { useRouter } from "next/navigation";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
 
-import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import EventNoteRoundedIcon from "@mui/icons-material/EventNoteRounded";
 import CorporateFareRoundedIcon from "@mui/icons-material/CorporateFareRounded";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
@@ -18,9 +11,15 @@ import TextSnippetRoundedIcon from "@mui/icons-material/TextSnippetRounded";
 import NotificationAddRoundedIcon from "@mui/icons-material/NotificationAddRounded";
 import PlaylistAddCheckRoundedIcon from "@mui/icons-material/PlaylistAddCheckRounded";
 
+import Drawer from "@/components/molecules/drawer/Drawer";
+import DrawerItem from "@/components/molecules/drawer/DrawerItem";
+import DrawerCollapseButton from "@/components/molecules/drawer/DrawerCollapseButton";
+
 import { UI } from "@/types/ui";
 import UiConfig from "@/config/ui.config";
-import DrawerItem from "@/components/molecules/drawer/DrawerItem";
+import useLayoutStore from "@/stores/useLayoutStore";
+import useDetectScreen from "@/hooks/useDetectScreen";
+import Spacer from "@/components/atoms/spacer/Spacer";
 
 interface SidebarProps {
   /**
@@ -35,14 +34,11 @@ interface SidebarProps {
 }
 
 export default function Sidebar(props: SidebarProps) {
-  const router = useRouter();
+  const { isMobile } = useDetectScreen();
 
-  const {
-    window,
-    isDesktopDrawerCollapsed,
-    isMobileDrawerOpen,
-    onMobileDrawerClose,
-  } = props;
+  const { layoutState, setLayoutState } = useLayoutStore();
+
+  const { isDesktopDrawerCollapsed, isMobileDrawerOpen } = layoutState;
 
   const drawerItems: (UI.DrawerItem | UI.DrawerDropdownItem)[] = [
     {
@@ -89,56 +85,38 @@ export default function Sidebar(props: SidebarProps) {
     },
   ];
 
+  const handleCloseMobileDrawer = () => {
+    setLayoutState("isMobileDrawerOpen", !isMobileDrawerOpen);
+  };
+
   const drawer = (
     <div>
-      <Toolbar>logo here</Toolbar>
-      <Divider />
+      <Toolbar>l</Toolbar>
+      {/* <Divider /> */}
+      <Spacer height="45px" />
+      <DrawerCollapseButton isDrawerOpen={true} />
       <List>
         {drawerItems.map((item) => {
-          return <DrawerItem data={item} />;
+          return (
+            <DrawerItem
+              data={item}
+              isDesktopDrawerCollapsed={isDesktopDrawerCollapsed}
+            />
+          );
         })}
       </List>
     </div>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box
       component="nav"
       sx={{ width: { md: UiConfig.desktopDrawerWidth }, flexShrink: { sm: 0 } }}
-      aria-label="mailbox folders"
+      aria-label="sidebar-menus"
     >
-      {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
       <Drawer
-        container={container}
-        variant="temporary"
-        open={isMobileDrawerOpen}
-        onClose={onMobileDrawerClose}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
-        sx={{
-          display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": {
-            boxSizing: "border-box",
-            width: UiConfig.desktopDrawerWidth,
-          },
-        }}
-      >
-        {drawer} mobile
-      </Drawer>
-      <Drawer
-        variant="permanent"
-        sx={{
-          display: { xs: "none", md: "block" },
-          "& .MuiDrawer-paper": {
-            boxSizing: "border-box",
-            width: UiConfig.desktopDrawerWidth,
-          },
-        }}
-        open
+        isMobileDrawerOpen={isMobileDrawerOpen}
+        onMobileDrawerClose={handleCloseMobileDrawer}
       >
         {drawer}
       </Drawer>
