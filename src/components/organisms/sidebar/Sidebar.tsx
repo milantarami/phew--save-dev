@@ -1,19 +1,18 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
 import Toolbar from '@mui/material/Toolbar'
 
+import Spacer from '@/components/atoms/spacer/Spacer'
 import Drawer from '@/components/molecules/drawer/Drawer'
 import DrawerItem from '@/components/molecules/drawer/DrawerItem'
-import DrawerCollapseButton from '@/components/molecules/drawer/DrawerCollapseButton'
+import DrawerCollapseButton from '@/components/atoms/button/DrawerCollapseButton'
 
 import { UI } from '@/types/ui'
 import UiConfig from '@/config/ui.config'
+import useDrawerItems from '@/hooks/useDrawerItems'
 import useLayoutStore from '@/stores/useLayoutStore'
 import useDetectScreen from '@/hooks/useDetectScreen'
-import Spacer from '@/components/atoms/spacer/Spacer'
-import useDrawerItems from '@/hooks/useDrawerItems'
 
 interface SidebarProps {
   /**
