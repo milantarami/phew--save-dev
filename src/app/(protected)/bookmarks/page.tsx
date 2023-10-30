@@ -27,8 +27,8 @@ export default function Page() {
     <Grid container>
       <Grid item xs={12}>
         <Box>
-          {data.map((b) => (
-            <Bookmark />
+          {data.map((b, i) => (
+            <Bookmark key={i}/>
           ))}
         </Box>
       </Grid>

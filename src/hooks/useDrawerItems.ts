@@ -1,9 +1,15 @@
-import { UI } from "@/types/ui";
+import { useState } from 'react'
+
+import { drawerItems } from '@/data/drawer-items'
 
 const useDrawerItems = () => {
-  //
+  const [items, setItems] = useState(drawerItems)
 
-  const items: UI.DrawerItem[] = [];
-};
+  const swap = () => {
+    //
+  }
 
-export default useDrawerItems;
+  return { items, setItems, swap }
+}
+
+export default useDrawerItems

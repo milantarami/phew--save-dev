@@ -12,6 +12,7 @@ const StyledButton = styled(IconButton)(({ theme }) => ({
   top: `calc(${theme.mixins.toolbar.height} + 15px)`,
   height: "30px",
   width: "30px",
+  background: theme.palette.common.white,
   "&:hover": {
     background: alpha(theme.palette.border, 0.5),
   },
