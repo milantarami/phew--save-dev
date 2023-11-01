@@ -1,63 +1,54 @@
-"use client";
+'use client'
 
-import "./globals.css";
+import './globals.css'
 
-import { useEffect } from "react";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
+import { useEffect } from 'react'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
 
-import AppBar from "@/components/organisms/appbar/AppBar";
-import Sidebar from "@/components/organisms/sidebar/Sidebar";
-import ThemeRegistry from "@/components/theme-registry/ThemeRegistry";
-import IndexedDbSupport from "@/components/atoms/indexed-db/IndexedDbSupport";
+import AppBar from '@/components/organisms/appbar/AppBar'
+import Sidebar from '@/components/organisms/sidebar/Sidebar'
+import ThemeRegistry from '@/components/theme-registry/ThemeRegistry'
+import IndexedDbSupport from '@/components/atoms/indexed-db/IndexedDbSupport'
 
-import UiConfig from "@/config/ui.config";
-import useLayoutStore from "@/stores/useLayoutStore";
-import useDetectScreen from "@/hooks/useDetectScreen";
+import UiConfig from '@/config/ui.config'
+import useLayoutStore from '@/stores/useLayoutStore'
+import useDetectScreen from '@/hooks/useDetectScreen'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const {
     layoutState: { isMobileDrawerOpen, isDesktopDrawerCollapsed, drawerItems },
     setLayoutState,
-  } = useLayoutStore();
+  } = useLayoutStore()
 
-  const { isTablet } = useDetectScreen();
+  const { isTablet } = useDetectScreen()
 
   useEffect(() => {
-    localStorage.setItem("test", "value");
-  }, []);
+    localStorage.setItem('test', 'value')
+  }, [])
 
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
         <ThemeRegistry>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: 'flex' }}>
             <AppBar
               onDrawerToggle={() => {
                 if (isTablet) {
-                  setLayoutState("isMobileDrawerOpen", !isMobileDrawerOpen);
+                  setLayoutState('isMobileDrawerOpen', !isMobileDrawerOpen)
                 } else {
-                  setLayoutState(
-                    "isDesktopDrawerCollapsed",
-                    !isDesktopDrawerCollapsed,
-                  );
+                  setLayoutState('isDesktopDrawerCollapsed', !isDesktopDrawerCollapsed)
                 }
               }}
             />
             <Sidebar
               isMobileDrawerOpen={isMobileDrawerOpen}
-              onMobileDrawerClose={() =>
-                setLayoutState("isMobileDrawerOpen", !isMobileDrawerOpen)
-              }
+              onMobileDrawerClose={() => setLayoutState('isMobileDrawerOpen', !isMobileDrawerOpen)}
               isDesktopDrawerCollapsed={isDesktopDrawerCollapsed}
               drawerItems={drawerItems}
             />
             <Box
-              component="main"
+              component='main'
               sx={{
                 flexGrow: 1,
                 p: 1,
@@ -72,5 +63,5 @@ export default function RootLayout({
         </ThemeRegistry>
       </body>
     </html>
-  );
+  )
 }

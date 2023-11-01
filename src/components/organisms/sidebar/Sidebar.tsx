@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Box from '@mui/material/Box'
 import List from '@mui/material/List'
@@ -39,28 +41,24 @@ export default function Sidebar(props: SidebarProps) {
     setLayoutState('isMobileDrawerOpen', !isMobileDrawerOpen)
   }
 
-  const drawer = (
-    <div>
-      <Toolbar>l</Toolbar>
-      {/* <Divider /> */}
-      <Spacer height='45px' />
-      <DrawerCollapseButton isDrawerOpen={true} />
-      <List>
-        {drawerItems.map((item) => {
-          return <DrawerItem data={item} isDesktopDrawerCollapsed={isDesktopDrawerCollapsed} />
-        })}
-      </List>
-    </div>
-  )
+  const drawer = <div></div>
 
   return (
     <Box
-      component='nav'
+      // component='nav'
       sx={{ width: { md: UiConfig.desktopDrawerWidth }, flexShrink: { sm: 0 } }}
       aria-label='sidebar-menus'
     >
       <Drawer isMobileDrawerOpen={isMobileDrawerOpen} onMobileDrawerClose={handleCloseMobileDrawer}>
-        {drawer}
+        <Toolbar>l</Toolbar>
+        {/* <Divider /> */}
+        <Spacer height='45px' />
+        <DrawerCollapseButton isDrawerOpen={true} />
+        <List>
+          {drawerItems.map((item) => {
+            return <DrawerItem data={item} isDesktopDrawerCollapsed={isDesktopDrawerCollapsed} />
+          })}
+        </List>
       </Drawer>
     </Box>
   )
