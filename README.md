@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -14,23 +12,23 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# References
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Standardize Your Next.js Project with ESLint and Husky](https://yehezgun.com/articles/standardize-your-nextjs-project)
+- [Conventional Commit](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
+- [Start a clean Next.js project with TypeScript, ESLint and Prettier](https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js)
+- [Setup Next.js 13 project with Eslint + Prettier](https://gist.github.com/Nivethan-Ar/2375bf451d4c30148916b59c7e0c51c0)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# React Atomic Design
 
-## Learn More
+- [atomic-design-demo-github](https://github.com/fabiosjc/atomic-design-demo)
+- [atomic-design-demo](https://atomic-storybook.netlify.app/?path=/story/atoms-logo--default)
+- [react-atomic-structure](https://github.com/Rulox/react-atomic-structure)
 
-To learn more about Next.js, take a look at the following resources:
+# Blogs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [From atoms to pages: Implementing Atomic Design in React](https://bootcamp.uxdesign.cc/from-atoms-to-pages-implementing-atomic-design-in-react-2c91d1031e7c)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Libraries
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Mousetrap](https://craig.is/killing/mice)

@@ -1,3 +1,29 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    // "next",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "plugins": ["filenames-simple"],
+  "overrides": [
+    {
+      "files": ["./src/components/**/*.tsx", "./src/providers/**/*.tsx"],
+      "rules": {
+        "filenames-simple/naming-convention": [
+          "error",
+          {
+            "rule": "PascalCase",
+            "excepts": ["index"]
+          }
+        ]
+      }
+    },
+    {
+      "files": [".eslintrc.json", "package.json", "package-lock.json", ".lintstagedrc.js"],
+      "rules": {
+        "filenames-simple/naming-convention": "off",
+        "semi": "off"
+      }
+    }
+  ]
 }
