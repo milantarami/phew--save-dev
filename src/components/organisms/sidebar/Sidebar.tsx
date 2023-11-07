@@ -29,7 +29,7 @@ export default function Sidebar() {
   } = useLayoutStore();
 
   return (
-    <DesktopDrawer variant="permanent" open>
+    <DesktopDrawer variant="permanent" open={isDesktopDrawerCollapsed}>
       <DrawerHeader>
         <IconButton onClick={() => setLayoutState("isDesktopDrawerCollapsed", !isDesktopDrawerCollapsed)}>
           {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}

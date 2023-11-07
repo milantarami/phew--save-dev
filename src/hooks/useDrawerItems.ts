@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import { drawerItems } from '@/data/drawer-items'
+import { drawerItems } from "@/data/drawer-items";
 
 const useDrawerItems = () => {
-  const [items, setItems] = useState(drawerItems)
+  const [items, setItems] = useState(drawerItems);
 
   const swap = () => {
     //
-  }
+  };
 
-  return { items, setItems, swap }
-}
+  return { items, setItems, swap };
+};
 
-export default useDrawerItems
+export default useDrawerItems;

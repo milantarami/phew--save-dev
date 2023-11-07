@@ -12,10 +12,7 @@ interface LayoutState {
 
 interface LayoutStoreState {
   layoutState: LayoutState;
-  setLayoutState: <T extends keyof LayoutState, V extends LayoutState[T]>(
-    key: T,
-    value: V,
-  ) => void;
+  setLayoutState: <T extends keyof LayoutState, V extends LayoutState[T]>(key: T, value: V) => void;
 }
 
 const initialState: LayoutState = {
@@ -29,10 +26,7 @@ const useLayoutStore = create<LayoutStoreState>()(
     persist(
       (set) => ({
         layoutState: initialState,
-        setLayoutState: <T extends keyof LayoutState, V extends LayoutState[T]>(
-          key: T,
-          value: V,
-        ) =>
+        setLayoutState: <T extends keyof LayoutState, V extends LayoutState[T]>(key: T, value: V) =>
           set((state) => ({
             layoutState: {
               ...state.layoutState,

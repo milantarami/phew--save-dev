@@ -5,9 +5,7 @@ import AppwriteConfig from "@/config/appwite.config";
 
 const appwriteClient = new Client();
 
-appwriteClient
-  .setEndpoint(AppwriteConfig.baseUrl)
-  .setProject(AppwriteConfig.projectId);
+appwriteClient.setEndpoint(AppwriteConfig.baseUrl).setProject(AppwriteConfig.projectId);
 
 export const account = new Account(appwriteClient);
 
@@ -16,11 +14,7 @@ export class AppwriteAuthService {
    * login with github
    */
   loginWithGithub(): void {
-    account.createOAuth2Session(
-      "github",
-      AppwriteConfig.oauth2.successCallback,
-      AppwriteConfig.oauth2.failureCallback,
-    );
+    account.createOAuth2Session("github", AppwriteConfig.oauth2.successCallback, AppwriteConfig.oauth2.failureCallback);
   }
 
   async getCurrentUser() {

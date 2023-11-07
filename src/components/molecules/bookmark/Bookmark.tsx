@@ -28,12 +28,7 @@ export default function Bookmark() {
   return (
     <BookmarkWrapper>
       <Center>
-        <Image
-          src="https://icons.duckduckgo.com/ip3/dev.to.ico"
-          height={16}
-          width={16}
-          alt="favicon"
-        />
+        <Image src="https://icons.duckduckgo.com/ip3/dev.to.ico" height={16} width={16} alt="favicon" />
       </Center>
       <Box>
         <Typography>Design Patterns in React (Adapter)</Typography>

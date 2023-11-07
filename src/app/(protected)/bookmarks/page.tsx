@@ -28,7 +28,7 @@ export default function Page() {
       <Grid item xs={12}>
         <Box>
           {data.map((b, i) => (
-            <Bookmark key={i}/>
+            <Bookmark key={i} />
           ))}
         </Box>
       </Grid>

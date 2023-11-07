@@ -1,9 +1,6 @@
 import React from "react";
 
-export type Icon =
-  | React.ReactNode
-  | React.ReactElement
-  | React.LazyExoticComponent;
+export type Icon = React.ReactNode | React.ReactElement | React.LazyExoticComponent;
 
 export declare namespace UI {
   export type DrawerItem =
