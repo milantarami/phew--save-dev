@@ -1,12 +1,12 @@
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 import AppConfig from "@/config/app.config";
 import { UI } from "@/types/ui";
 
 interface LayoutState {
   isMobileDrawerOpen: boolean;
-  isDesktopDrawerCollapsed: boolean;
+  isDesktopDrawerOpen: boolean;
   drawerItems: UI.DrawerItem[];
 }
 
@@ -17,7 +17,7 @@ interface LayoutStoreState {
 
 const initialState: LayoutState = {
   isMobileDrawerOpen: false,
-  isDesktopDrawerCollapsed: false,
+  isDesktopDrawerOpen: true,
   drawerItems: [],
 };
 

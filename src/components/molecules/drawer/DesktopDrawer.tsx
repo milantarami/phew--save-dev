@@ -1,3 +1,5 @@
+"use client";
+
 import MuiDrawer from "@mui/material/Drawer";
 import { CSSObject, Theme, styled } from "@mui/material/styles";
 

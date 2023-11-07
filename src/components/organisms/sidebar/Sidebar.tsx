@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -24,14 +26,19 @@ export default function Sidebar() {
   const { items } = useDrawerItems();
 
   const {
-    layoutState: { isDesktopDrawerCollapsed, isMobileDrawerOpen },
+    layoutState: { isDesktopDrawerOpen },
     setLayoutState,
   } = useLayoutStore();
 
   return (
-    <DesktopDrawer variant="permanent" open={isDesktopDrawerCollapsed}>
+    <DesktopDrawer variant="permanent" open={isDesktopDrawerOpen}>
       <DrawerHeader>
-        <IconButton onClick={() => setLayoutState("isDesktopDrawerCollapsed", !isDesktopDrawerCollapsed)}>
+        <IconButton
+          onClick={() => {
+            console.log("test");
+            setLayoutState("isDesktopDrawerOpen", false);
+          }}
+        >
           {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
       </DrawerHeader>
@@ -42,20 +49,20 @@ export default function Sidebar() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: isDesktopDrawerCollapsed ? "initial" : "center",
+                justifyContent: isDesktopDrawerOpen ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <ListItemIcon
                 sx={{
                   minWidth: 0,
-                  mr: isDesktopDrawerCollapsed ? 3 : "auto",
+                  mr: isDesktopDrawerOpen ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={item.label} sx={{ opacity: isDesktopDrawerCollapsed ? 1 : 0 }} />
+              <ListItemText primary={item.label} sx={{ opacity: isDesktopDrawerOpen ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
         ))}

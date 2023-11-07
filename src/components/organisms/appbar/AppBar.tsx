@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import UiConfig from "@/config/ui.config";
 import Toolbar from "@mui/material/Toolbar";
@@ -33,21 +35,21 @@ const StyledAppBar = styled(MuiAppBar, {
 
 export default function AppBar() {
   const {
-    layoutState: { isDesktopDrawerCollapsed },
+    layoutState: { isDesktopDrawerOpen },
     setLayoutState,
   } = useLayoutStore();
 
   return (
-    <StyledAppBar position="fixed" open={isDesktopDrawerCollapsed}>
+    <StyledAppBar position="fixed" open={isDesktopDrawerOpen}>
       <Toolbar>
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={() => setLayoutState("isDesktopDrawerCollapsed", !isDesktopDrawerCollapsed)}
+          onClick={() => setLayoutState("isDesktopDrawerOpen", true)}
           edge="start"
           sx={{
             marginRight: 5,
-            ...(isDesktopDrawerCollapsed && { display: "none" }),
+            ...(isDesktopDrawerOpen && { display: "none" }),
           }}
         >
           <MenuIcon />
