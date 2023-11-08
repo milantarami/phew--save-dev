@@ -20,25 +20,22 @@ import DesktopDrawer from "@/components/molecules/drawer/DesktopDrawer";
 
 import useDrawerItems from "@/hooks/useDrawerItems";
 
-export default function Sidebar() {
+interface SidebarProps {
+  isDesktopDrawerOpen?: boolean;
+  onDrawerClose?: () => void;
+}
+
+export default function Sidebar(props: SidebarProps) {
   const theme = useTheme();
 
   const { items } = useDrawerItems();
 
-  const {
-    layoutState: { isDesktopDrawerOpen },
-    setLayoutState,
-  } = useLayoutStore();
+  const { isDesktopDrawerOpen, onDrawerClose } = props;
 
   return (
     <DesktopDrawer variant="permanent" open={isDesktopDrawerOpen}>
       <DrawerHeader>
-        <IconButton
-          onClick={() => {
-            console.log("test");
-            setLayoutState("isDesktopDrawerOpen", false);
-          }}
-        >
+        <IconButton onClick={onDrawerClose}>
           {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
       </DrawerHeader>

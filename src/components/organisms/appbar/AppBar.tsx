@@ -33,11 +33,13 @@ const StyledAppBar = styled(MuiAppBar, {
   }),
 }));
 
-export default function AppBar() {
-  const {
-    layoutState: { isDesktopDrawerOpen },
-    setLayoutState,
-  } = useLayoutStore();
+interface AppBarProps {
+  isDesktopDrawerOpen?: boolean;
+  onDrawerOpen?: () => void;
+}
+
+export default function AppBar(props: AppBarProps) {
+  const { onDrawerOpen, isDesktopDrawerOpen } = props;
 
   return (
     <StyledAppBar position="fixed" open={isDesktopDrawerOpen}>
@@ -45,7 +47,7 @@ export default function AppBar() {
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={() => setLayoutState("isDesktopDrawerOpen", true)}
+          onClick={onDrawerOpen}
           edge="start"
           sx={{
             marginRight: 5,
