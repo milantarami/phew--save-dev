@@ -36,7 +36,7 @@ const useLayoutStore = create<LayoutStoreState>()(
       }),
       {
         name: "dashboard-layout-state",
-        version: AppConfig.version,
+        version: Math.random(),
       },
     ),
   ),
