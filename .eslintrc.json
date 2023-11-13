@@ -1,10 +1,14 @@
 {
-  "extends": [
-    // "next",
-    "next/core-web-vitals",
-    "prettier"
-  ],
+  "extends": ["next", "prettier"],
   "plugins": ["filenames-simple"],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@mui/*/*/*"]
+      }
+    ]
+  },
   "overrides": [
     {
       "files": ["./src/components/**/*.tsx", "./src/providers/**/*.tsx"],
