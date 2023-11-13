@@ -1,4 +1,5 @@
-const AppConfig = {
+const appConfig = {
+  name: "App Name",
   /**
    * App base url
    */
@@ -11,4 +12,4 @@ const AppConfig = {
   isServer: typeof window === undefined,
 };
 
-export default AppConfig;
+export default appConfig;

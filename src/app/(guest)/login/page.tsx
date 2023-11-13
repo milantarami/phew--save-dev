@@ -1,5 +1,4 @@
 "use client";
-import NextAuth from "next-auth";
 
 import appwriteAuthService from "@/services/appwrite-auth.service";
 

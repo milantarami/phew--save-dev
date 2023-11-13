@@ -1,6 +1,6 @@
-import AppConfig from "./app.config";
+import appConfig from "./app.config";
 
-const AppwriteConfig = {
+const appwriteConfig = {
   /**
    * Appwrite Project ID
    *
@@ -18,9 +18,9 @@ const AppwriteConfig = {
    *
    */
   oauth2: {
-    successCallback: `${AppConfig.baseUrl}/dashboard`,
-    failureCallback: `${AppConfig.baseUrl}/failure`,
+    successCallback: `${appConfig.baseUrl}/dashboard`,
+    failureCallback: `${appConfig.baseUrl}/failure`,
   },
 };
 
-export default AppwriteConfig;
+export default appwriteConfig;
