@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 
+import { FaBookmark } from "react-icons/fa6";
+
 const EventNoteRoundedIcon = dynamic(() => import("@mui/icons-material/EventNoteRounded"));
 const TextSnippetRoundedIcon = dynamic(() => import("@mui/icons-material/TextSnippetRounded"));
 const CorporateFareRoundedIcon = dynamic(() => import("@mui/icons-material/CorporateFareRounded"));
@@ -13,7 +15,7 @@ export const drawerItems: (UI.DrawerItem | UI.DrawerDropdownItem)[] = [
   {
     type: "link",
     key: "bookmarks",
-    icon: <BookmarkBorderRoundedIcon />,
+    icon: <FaBookmark />,
     label: "Bookmarks",
     path: "/bookmarks",
     isEnabled: false,

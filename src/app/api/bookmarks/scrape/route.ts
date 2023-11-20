@@ -29,7 +29,7 @@ export async function GET(request: Request) {
       faviconURL = "No Favicon Found";
     }
 
-    return Response.json({ title, metaDescription, baseURL, faviconURL, scrapedURL: scrapeUrl });
+    return Response.json({ title, metaDescription, baseUrl: baseURL, faviconUrl: faviconURL, originalUrl: scrapeUrl });
   } catch (error) {
     return Response.json({ error: "error" });
   }

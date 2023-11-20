@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import * as createTheme from "@mui/material/styles/createTheme";
 import * as createPalette from "@mui/material/styles/createPalette";
 

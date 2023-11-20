@@ -12,7 +12,7 @@ import useLayoutStore from "@/stores/useLayoutStore";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const {
-    layoutState: { isDesktopDrawerOpen, isMobileDrawerOpen },
+    layoutState: { isDesktopDrawerOpen },
     setLayoutState,
   } = useLayoutStore();
 
@@ -22,16 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeRegistry>
           <Box sx={{ display: "flex" }}>
             <CssBaseline />
-            <AppBar
-              isDesktopDrawerOpen={isDesktopDrawerOpen}
-              onDrawerOpen={() => setLayoutState("isDesktopDrawerOpen", true)}
-            />
             <Sidebar
               isDesktopDrawerOpen={isDesktopDrawerOpen}
-              onDrawerClose={() => setLayoutState("isDesktopDrawerOpen", false)}
+              onDrawerToggle={() => setLayoutState("isDesktopDrawerOpen", !isDesktopDrawerOpen)}
             />
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-              <DrawerHeader />
               {children}
             </Box>
           </Box>

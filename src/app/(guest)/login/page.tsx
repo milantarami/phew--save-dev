@@ -1,10 +1,14 @@
 "use client";
 
 import appwriteAuthService from "@/services/appwrite-auth.service";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const handleLogin = () => {
-    appwriteAuthService.loginWithGithub();
+    // appwriteAuthService.loginWithGithub();
+    signIn("github", {
+      callbackUrl: "http://localhost:3008",
+    });
   };
 
   return (

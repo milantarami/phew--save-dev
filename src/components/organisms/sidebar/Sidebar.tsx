@@ -22,7 +22,7 @@ import useDrawerItems from "@/hooks/useDrawerItems";
 
 interface SidebarProps {
   isDesktopDrawerOpen?: boolean;
-  onDrawerClose?: () => void;
+  onDrawerToggle?: () => void;
 }
 
 export default function Sidebar(props: SidebarProps) {
@@ -30,13 +30,23 @@ export default function Sidebar(props: SidebarProps) {
 
   const { items } = useDrawerItems();
 
-  const { isDesktopDrawerOpen, onDrawerClose } = props;
+  const { isDesktopDrawerOpen, onDrawerToggle } = props;
 
   return (
     <DesktopDrawer variant="permanent" open={isDesktopDrawerOpen}>
       <DrawerHeader>
-        <IconButton onClick={onDrawerClose}>
-          {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        <IconButton onClick={onDrawerToggle}>
+          {theme.direction === "rtl" ? (
+            isDesktopDrawerOpen ? (
+              <ChevronRightIcon />
+            ) : (
+              <ChevronLeftIcon />
+            )
+          ) : isDesktopDrawerOpen ? (
+            <ChevronLeftIcon />
+          ) : (
+            <ChevronRightIcon />
+          )}
         </IconButton>
       </DrawerHeader>
       <Divider />
@@ -57,7 +67,7 @@ export default function Sidebar(props: SidebarProps) {
                   justifyContent: "center",
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {item.icon}
               </ListItemIcon>
               <ListItemText primary={item.label} sx={{ opacity: isDesktopDrawerOpen ? 1 : 0 }} />
             </ListItemButton>
