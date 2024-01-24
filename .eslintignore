@@ -1,2 +1,12 @@
 .next
-node_modules
+coverage/
+dist/
+node_modules/
+build/
+
+commitlint.config.js
+lint-staged.config.js
+.lintstagedrc.js
+packakge.json
+package-lock.json
+next.config.js

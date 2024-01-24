@@ -1,2 +1,10 @@
-.next
 node_modules
+.next
+.husky
+coverage
+.prettierignore
+.stylelintignore
+.eslintignore
+.prettierc
+package-lock.json
+.lintstagedrc.js
