@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "phew--save-dev",
+=======
+  "name": "phew--save-dev-new",
+>>>>>>> ba0508bcea7f7479a70cd3fde5ace607a81c6778
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,11 +16,15 @@
     "prettier:write": "prettier --write  --ignore-unknown \"src/**/*.{ts,tsx,md,json}\""
   },
   "dependencies": {
+<<<<<<< HEAD
     "18": "^0.0.0",
+=======
+>>>>>>> ba0508bcea7f7479a70cd3fde5ace607a81c6778
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.13",
     "@mui/material": "^5.14.12",
+<<<<<<< HEAD
     "@types/node": "20.6.4",
     "@types/qs": "^6.9.9",
     "@types/react": "18.2.22",
@@ -38,18 +46,47 @@
     "react-useanimations": "^2.10.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
+=======
+    "@uidotdev/usehooks": "^2.4.0",
+    "appwrite": "^13.0.0",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dexie": "^3.2.4",
+    "next": "14.0.1",
+    "qs": "^6.11.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-useanimations": "^2.10.0",
+>>>>>>> ba0508bcea7f7479a70cd3fde5ace607a81c6778
     "zustand": "^4.4.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
+<<<<<<< HEAD
+=======
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1",
+>>>>>>> ba0508bcea7f7479a70cd3fde5ace607a81c6778
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-filenames-simple": "^0.8.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.0",
+<<<<<<< HEAD
     "lint-staged": "^15.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
     "eslint-config-next": "14.0.1"
+=======
+    "lint-staged": "^15.0.2",
+    "postcss": "^8",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+>>>>>>> ba0508bcea7f7479a70cd3fde5ace607a81c6778
   }
 }

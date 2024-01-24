@@ -10,3 +10,4 @@ lint-staged.config.js
 packakge.json
 package-lock.json
 next.config.js
+.lintstagedrc.js
